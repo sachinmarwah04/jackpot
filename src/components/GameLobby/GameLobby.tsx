@@ -40,6 +40,7 @@ export default function GameLobby() {
       setActiveTab(tabId);
       setActiveSection(null);
       setSearchQuery("");
+      setActiveVendor(""); // clear vendor when tab selected
       if (tabId) {
         const section = GAME_SECTIONS.find((s) => s.id === tabId);
         if (section) {
@@ -51,7 +52,7 @@ export default function GameLobby() {
         }
       }
     },
-    [setActiveTab, setActiveSection, setSearchQuery],
+    [setActiveTab, setActiveSection, setSearchQuery, setActiveVendor],
   );
 
   // ── View All ──
@@ -168,7 +169,13 @@ export default function GameLobby() {
             activeTab={activeTab}
             onTabChange={handleTabChange}
             activeVendor={activeVendor}
-            onVendorChange={setActiveVendor}
+            onVendorChange={(vendor) => {
+              setActiveVendor(vendor);
+              if (vendor) {
+                setActiveTab(""); // clear tab when vendor selected
+                setActiveSection(null);
+              }
+            }}
           />
         </div>
 
