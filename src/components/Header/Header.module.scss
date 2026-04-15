@@ -1,0 +1,131 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  width: 100%;
+  height: 80px;
+  background: #25222d;
+  flex-shrink: 0;
+  /* Promote to compositor layer — sticky element no longer repaints on every scroll frame */
+  will-change: transform;
+}
+
+.inner {
+  max-width: 1216px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  @media (min-width: 768px) {
+    padding: 0 24px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.logoImg {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+/* Icon buttons (search, chat) — Figma: #1E1B26 fill, 2px #332E42 border, 6px radius */
+.iconBtn {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 44px;
+  height: 44px;
+  background: #1e1b26;
+  border: 2px solid #332e42;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  flex-shrink: 0;
+  padding: 0;
+
+  &:hover {
+    background: #2a2535;
+  }
+
+  svg {
+    width: 44px;
+    height: 44px;
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+/* Login button — exact Figma values */
+.loginBtn {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 99.39px;
+  padding: 12px 33.7px;
+  background: #1e1b26;
+  border: 2px solid #332e42;
+  border-radius: 6px;
+  color: #eae6f5;
+  font-size: 0.75rem;
+  font-family: var(--font);
+  font-weight: 400;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: #2a2535;
+  }
+}
+
+/* Register button — exact Figma values */
+.registerBtn {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 140px;
+  height: 43px;
+  background: #7658ed;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    background: #6747d8;
+  }
+
+  @media (max-width: 480px) {
+    width: auto;
+    padding: 0 16px;
+    font-size: 13px;
+    height: 40px;
+  }
+}
