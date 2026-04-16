@@ -92,6 +92,7 @@ export const GAME_SECTIONS: GameSection[] = [
 ];
 
 export const NAV_TABS = [
+  { id: '', label: 'All' },
   ...GAME_SECTIONS.slice(0, 4).map((s) => ({ id: s.id, label: s.label })), // jackpot, new, slots, featured
   { id: 'live', label: 'Live Dealer' },
   ...GAME_SECTIONS.slice(4).filter((s) => s.id !== 'sports').map((s) => ({ id: s.id, label: s.label })), // game-shows, table
