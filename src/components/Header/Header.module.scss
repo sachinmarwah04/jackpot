@@ -97,6 +97,13 @@
   &:hover {
     background: #2a2535;
   }
+
+  @media (max-width: 480px) {
+    width: auto;
+    padding: 0 16px;
+    font-size: 13px;
+    height: 40px;
+  }
 }
 
 /* Register button — exact Figma values */
