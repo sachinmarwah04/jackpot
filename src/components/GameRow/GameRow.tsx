@@ -135,36 +135,38 @@ export default function GameRow({ section, onViewAll }: GameRowProps) {
           <h2 className={styles.title}>{section.label}</h2>
         </div>
 
-        <div className={styles.actions}>
-          <button
-            type="button"
-            className={styles.viewAllBtn}
-            onClick={() => onViewAll(section)}
-          >
-            View All
-          </button>
-          {/* Figma node 1:1070 — single 50×34 frame with both chevrons */}
-          <div className={styles.arrowGroup}>
+        {!isLoading && games.length > 0 && (
+          <div className={styles.actions}>
             <button
               type="button"
-              className={styles.arrowHalf}
-              aria-label="Scroll left"
-              disabled={!canScrollLeft}
-              onClick={() => scroll(-1)}
+              className={styles.viewAllBtn}
+              onClick={() => onViewAll(section)}
             >
-              <Image src="/icons/chevron-left.svg" width={6} height={11} alt="" unoptimized />
+              View All
             </button>
-            <button
-              type="button"
-              className={styles.arrowHalf}
-              aria-label="Scroll right"
-              disabled={!canScrollRight}
-              onClick={() => scroll(1)}
-            >
-              <Image src="/icons/chevron-right.svg" width={6} height={11} alt="" unoptimized />
-            </button>
+            {/* Figma node 1:1070 — single 50×34 frame with both chevrons */}
+            <div className={styles.arrowGroup}>
+              <button
+                type="button"
+                className={styles.arrowHalf}
+                aria-label="Scroll left"
+                disabled={!canScrollLeft}
+                onClick={() => scroll(-1)}
+              >
+                <Image src="/icons/chevron-left.svg" width={6} height={11} alt="" unoptimized />
+              </button>
+              <button
+                type="button"
+                className={styles.arrowHalf}
+                aria-label="Scroll right"
+                disabled={!canScrollRight}
+                onClick={() => scroll(1)}
+              >
+                <Image src="/icons/chevron-right.svg" width={6} height={11} alt="" unoptimized />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className={styles.rowWrapper}>
