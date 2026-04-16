@@ -47,6 +47,7 @@ export default function Filters({ activeTab, onTabChange, activeVendor, onVendor
 
   return (
     <div className={styles.wrapper}>
+      {/* Row 1: scrollable tabs */}
       <nav className={styles.nav} aria-label="Game categories">
         {NAV_TABS.map(({ id, label }) => (
           <button
@@ -60,7 +61,51 @@ export default function Filters({ activeTab, onTabChange, activeVendor, onVendor
         ))}
       </nav>
 
+      {/* Row 2: dropdown + fav button */}
       <div className={styles.vendorRow}>
+        <div
+          ref={dropdownRef}
+          className={`${styles.dropdown} ${dropdownOpen ? styles.dropdownOpen : ""}`}
+        >
+        <button
+          type="button"
+          className={`${styles.dropdownTrigger} ${activeVendor ? styles.dropdownActive : ""}`}
+          onClick={() => setDropdownOpen((o) => !o)}
+          aria-haspopup="listbox"
+          aria-expanded={dropdownOpen}
+        >
+          <span>{selectedLabel}</span>
+          <Image
+            src="/icons/chevron-down.svg"
+            width={12}
+            height={12}
+            alt=""
+            unoptimized
+            className={styles.dropdownChevron}
+          />
+        </button>
+
+        <ul className={styles.dropdownList} role="listbox">
+          {VENDORS.map(({ value, label }) => (
+            <li
+              key={value}
+              role="option"
+              aria-selected={activeVendor === value}
+              className={`${styles.dropdownItem} ${activeVendor === value ? styles.dropdownItemActive : ""}`}
+              onMouseDown={() => {
+                onVendorChange(value);
+                setDropdownOpen(false);
+              }}
+            >
+              {label}
+              {activeVendor === value && (
+                <Image src="/icons/check.svg" width={12} height={12} alt="" unoptimized />
+              )}
+            </li>
+          ))}
+        </ul>
+        </div>
+
         <button
           ref={favBtnRef}
           type="button"
@@ -77,50 +122,6 @@ export default function Filters({ activeTab, onTabChange, activeVendor, onVendor
             unoptimized
           />
         </button>
-
-        {/* Custom dropdown */}
-        <div
-          ref={dropdownRef}
-          className={`${styles.dropdown} ${dropdownOpen ? styles.dropdownOpen : ""}`}
-        >
-          <button
-            type="button"
-            className={`${styles.dropdownTrigger} ${activeVendor ? styles.dropdownActive : ""}`}
-            onClick={() => setDropdownOpen((o) => !o)}
-            aria-haspopup="listbox"
-            aria-expanded={dropdownOpen}
-          >
-            <span>{selectedLabel}</span>
-            <Image
-              src="/icons/chevron-down.svg"
-              width={12}
-              height={12}
-              alt=""
-              unoptimized
-              className={styles.dropdownChevron}
-            />
-          </button>
-
-          <ul className={styles.dropdownList} role="listbox">
-            {VENDORS.map(({ value, label }) => (
-              <li
-                key={value}
-                role="option"
-                aria-selected={activeVendor === value}
-                className={`${styles.dropdownItem} ${activeVendor === value ? styles.dropdownItemActive : ""}`}
-                onMouseDown={() => {
-                  onVendorChange(value);
-                  setDropdownOpen(false);
-                }}
-              >
-                {label}
-                {activeVendor === value && (
-                  <Image src="/icons/check.svg" width={12} height={12} alt="" unoptimized />
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </div>
   );

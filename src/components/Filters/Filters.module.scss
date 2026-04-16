@@ -4,9 +4,13 @@
 .wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
   padding-bottom: 10px;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 }
 
 .nav {
@@ -21,6 +25,11 @@
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex: 0 0 100%;
   }
 }
 
@@ -55,10 +64,14 @@
 
 /* ── Vendor filter ───────────────────────────── */
 .vendorRow {
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    flex: 0 0 100%;
+  }
 }
 
 /* ── Favorites icon button (mirrors header .iconBtn) ── */
@@ -106,6 +119,8 @@
 /* ── Custom dropdown ─────────────────────────── */
 .dropdown {
   position: relative;
+  flex: 1;
+  min-width: 0;
 }
 
 .dropdownTrigger {
@@ -125,6 +140,13 @@
   white-space: nowrap;
   cursor: pointer;
   transition: background 0.15s ease;
+  width: 100%;
+  justify-content: space-between;
+
+  @media (min-width: 769px) {
+    width: auto;
+    justify-content: flex-start;
+  }
 
   &:hover {
     background: #2f2c3c;
@@ -150,6 +172,11 @@
   top: calc(100% + 6px);
   right: 0;
   min-width: 160px;
+  width: 100%;
+
+  @media (min-width: 769px) {
+    width: auto;
+  }
   background: #1e1a2e;
   border: 1.5px solid #332e42;
   border-radius: 8px;
