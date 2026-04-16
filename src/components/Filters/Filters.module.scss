@@ -42,12 +42,14 @@
   transition: background 0.15s ease;
 
   &:hover:not(.active) {
-    background: #2f2c3c;
+    background: #7658ed;
+    border-color: #7658ed;
   }
 
   &.active {
-    background: #332e42;
-    color: #eae6f5;
+    background: #7658ed;
+    border-color: #7658ed;
+    color: #fff;
   }
 }
 
