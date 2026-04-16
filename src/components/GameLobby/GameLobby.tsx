@@ -142,15 +142,22 @@ export default function GameLobby() {
     <div className={styles.lobby}>
       <FlyingHeartLayer />
       <div className={styles.inner}>
-        {/* ── Promotional banner ────────────── */}
+        {/* ── Promotional banners ───────────── */}
         <div className={styles.promoBanner}>
-          <Image
-            src="/banner/jackpot-airdrop-banner.png"
-            alt="$JACKPOT Airdrop"
-            width={387}
-            height={187}
-            className={styles.promoImg}
-          />
+          {[
+            { src: "/banner/jackpot-airdrop-banner.png", alt: "$JACKPOT Airdrop" },
+            { src: "/promos/wager-race.jpg",              alt: "$10,000 Wager Race" },
+            { src: "/promos/hacksaw.jpg",                 alt: "Hacksaw Cash Combat" },
+          ].map((b) => (
+            <Image
+              key={b.src}
+              src={b.src}
+              alt={b.alt}
+              width={387}
+              height={187}
+              className={styles.promoImg}
+            />
+          ))}
         </div>
 
         {/* ── Category tabs + search ─────────── */}

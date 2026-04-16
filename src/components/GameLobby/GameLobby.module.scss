@@ -14,17 +14,32 @@
   }
 }
 
-/* ── Promo banner ────────────────────────────── */
+/* ── Promo banners ───────────────────────────── */
 .promoBanner {
+  display: flex;
+  gap: 12px;
   padding: 16px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .promoImg {
+  flex-shrink: 0;
   width: 387px;
   height: 187px;
   border-radius: 6px;
-  display: block;
   object-fit: cover;
+  display: block;
+
+  @media (max-width: 480px) {
+    width: 280px;
+    height: 135px;
+  }
 }
 
 /* ── Controls bar (tabs + search) ───────────── */
