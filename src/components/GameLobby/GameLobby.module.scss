@@ -39,10 +39,9 @@
   scroll-snap-align: start;
 
   @media (max-width: 768px) {
-    width: 100%;
-    /* calc accounts for the outer padding so the image fills the visible area */
     width: calc(100vw - 32px);
-    height: 160px;
+    height: auto;
+    aspect-ratio: 387 / 187;
   }
 }
 
