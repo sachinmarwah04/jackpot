@@ -79,7 +79,9 @@ export default function GameRow({ section, onViewAll }: GameRowProps) {
     const el = scrollRef.current;
     if (!el) return;
 
-    const cardWidth = 179;
+    // Read actual card width from DOM so mobile/tablet sizes are correct
+    const firstCard = el.querySelector('article');
+    const cardWidth = firstCard ? firstCard.getBoundingClientRect().width + 8 : 179;
     const cols = Math.max(Math.floor(el.clientWidth / cardWidth), 1);
 
     // Accumulate onto in-flight target so rapid clicks build momentum

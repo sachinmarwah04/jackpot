@@ -67,7 +67,8 @@
   }
 
   @media (max-width: 480px) {
-    display: none;
+    padding: 0 10px;
+    font-size: 0.7rem;
   }
 }
 
@@ -116,7 +117,6 @@
   overflow-y: visible;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
   overscroll-behavior-x: contain;
   padding: 8px 8px 12px;
   /* Own compositor layer — scroll never triggers card repaints */
@@ -124,10 +124,6 @@
 
   &::-webkit-scrollbar {
     display: none;
-  }
-
-  > article {
-    scroll-snap-align: start;
   }
 }
 
