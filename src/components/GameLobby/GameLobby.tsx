@@ -145,9 +145,12 @@ export default function GameLobby() {
         {/* ── Promotional banners ───────────── */}
         <div className={styles.promoBanner}>
           {[
-            { src: "/banner/jackpot-airdrop-banner.png", alt: "$JACKPOT Airdrop" },
-            { src: "/promos/wager-race.jpg",              alt: "$10,000 Wager Race" },
-            { src: "/promos/hacksaw.jpg",                 alt: "Hacksaw Cash Combat" },
+            {
+              src: "/banner/jackpot-airdrop-banner.png",
+              alt: "$JACKPOT Airdrop",
+            },
+            { src: "/promos/wager-race.jpg", alt: "$10,000 Wager Race" },
+            { src: "/promos/hacksaw.jpg", alt: "Hacksaw Cash Combat" },
           ].map((b) => (
             <Image
               key={b.src}
@@ -225,7 +228,13 @@ export default function GameLobby() {
                   setSearchQuery("");
                 }}
               >
-                <Image src="/icons/chevron-left.svg" width={8} height={14} alt="" unoptimized />
+                <Image
+                  src="/icons/chevron-left.svg"
+                  width={8}
+                  height={14}
+                  alt=""
+                  unoptimized
+                />
                 Back
               </button>
               <h2 className={styles.gridTitle}>
@@ -322,7 +331,9 @@ export default function GameLobby() {
                 unoptimized
                 className={styles.comingSoonIcon}
               />
-              <p className={styles.comingSoonTitle}>Jackpot Airdrop Coming Soon</p>
+              <p className={styles.comingSoonTitle}>
+                Jackpot Airdrop Coming Soon
+              </p>
               <p className={styles.comingSoonText}>
                 This section is under construction. Check back soon!
               </p>
